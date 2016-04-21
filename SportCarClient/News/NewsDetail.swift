@@ -922,5 +922,24 @@ extension NewsDetailController {
         })
         self.view.layoutIfNeeded()
     }
+    
+    // MARK: - Share 
+    func titleForShare() -> String {
+        return news.title
+    }
+    
+    func descriptionForShare() -> String {
+        return news.content
+    }
+    
+    func thumbnailForShare() -> UIImage {
+        let image = newsCover.image!
+        let thumbnail = RBSquareImageTo(image, size: CGSizeMake(100, 100))
+        return thumbnail
+    }
+    
+    func linkForShare() -> String {
+        return news.contentURL!.absoluteString
+    }
 }
 
